@@ -12,6 +12,7 @@ app.set("view engine", "handlebars");
 let routes = require('./controllers/burger_controller');
 
 app.use(routes);
+app.use(express.static('public'))
 
 app.listen(PORT, (err) => {
     if (err) throw err;
