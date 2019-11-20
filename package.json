@@ -1,0 +1,33 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "get-da-burger burger logger app",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwmann13/burger.git"
+  },
+  "keywords": [
+    "burger",
+    "bootcamp",
+    "gt",
+    "georgia",
+    "tech",
+    "homework"
+  ],
+  "author": "Jeffrey Mann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwmann13/burger/issues"
+  },
+  "homepage": "https://github.com/jwmann13/burger#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
+}
