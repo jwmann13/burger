@@ -19,7 +19,7 @@ let orm = {
         })
     },
     insertOne: function (tableInput, cols, vals, cb) {
-        console.log('4');
+        // console.log('4');
         let queryString = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
         connection.query(queryString, vals, (err, data) => {
             if (err) throw err;

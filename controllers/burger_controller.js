@@ -7,7 +7,12 @@ let model = require('../models/burger')
 
 
 router.get("/", (req, res) => {
-    res.render("index")
+    model.selectAll((data) => {
+        let hbsObj = {
+            burgers: data
+        }
+        res.render("index", hbsObj)
+    })
 });
 
 router.get("/api/burgers", (req, res) => {
@@ -24,8 +29,12 @@ router.post("/api/burgers", (req, res) => {
     })
 })
 
-router.put("/api/burgers", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
     model.insertOne("burgers", req.body.burger_name, console.log)
+})
+
+router.delete("/api/burgers/:id", (req, res) => {
+    model.d
 })
 
 module.exports = router;

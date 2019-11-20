@@ -1,7 +1,7 @@
 $(document).ready(() => {
     $('.make-burger').on("submit", (event) => {
         event.preventDefault();
-        console.log('1');
+        // console.log('1');
 
         let newBurger = {
             burger_name: $('#burger-text').val().trim(),
@@ -15,5 +15,10 @@ $(document).ready(() => {
             console.log('added a borger')
             location.reload()
         });
+    });
+
+    $('.devour').on("click", (event) => {
+        event.preventDefault();
+
     })
 })

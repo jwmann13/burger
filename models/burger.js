@@ -2,8 +2,8 @@ let connection = require('../config/connection');
 let orm = require('../config/orm');
 
 let model = {
-    selectAll: function (table, cb) {
-        orm.selectAll(table, cb);
+    selectAll: function (cb) {
+        orm.selectAll('burgers', cb);
     },
     insertOne: function(vals, cb) {
         console.log('3');
