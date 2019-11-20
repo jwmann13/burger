@@ -6,13 +6,16 @@ const PORT = process.env.PORT || 8000;
 
 let app = express();
 
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.engine("handlebars", exphbrs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 let routes = require('./controllers/burger_controller');
 
 app.use(routes);
-app.use(express.static('public'))
 
 app.listen(PORT, (err) => {
     if (err) throw err;
