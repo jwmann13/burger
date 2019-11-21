@@ -2,7 +2,7 @@ const express = require('express');
 
 let router = express.Router();
 
-let model = require('../models/burger')
+let model = require('../models/burger_model')
 
 
 
@@ -22,7 +22,7 @@ router.get("/api/burgers", (req, res) => {
 })
 
 router.post("/api/burgers", (req, res) => {
-    console.log('2', req.body);
+    // console.log('2', req.body);
 
     model.insertOne([ req.body.burger_name, req.body.devoured ], (data) => {
         res.json(data)
@@ -30,7 +30,7 @@ router.post("/api/burgers", (req, res) => {
 })
 
 router.put("/api/burgers/:id", (req, res) => {
-    model.insertOne("burgers", req.body.burger_name, console.log)
+    model.updateOne('devoured', 'id', req.params.id, req.body.devoured);
 })
 
 router.delete("/api/burgers/:id", (req, res) => {

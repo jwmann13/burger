@@ -26,11 +26,11 @@ let orm = {
             cb(data);
         });
     },
-    updateOne: function (tableInput, propertyToUpdate, oldValue, newValue) {
+    updateOne: function (tableInput, propertyToUpdate, indexProperty, indexValue, newValue) {
         let queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-        connection.query(queryString, [tableInput, propertyToUpdate, newValue, propertyToUpdate, oldValue], (err) => {
+        connection.query(queryString, [tableInput, propertyToUpdate, newValue, indexProperty, indexValue], (err, res) => {
             if (err) throw err;
-            console.log('burger updated');
+            // console.log(res, queryString);
         })
     }
 }
