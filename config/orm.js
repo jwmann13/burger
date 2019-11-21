@@ -19,18 +19,18 @@ let orm = {
         })
     },
     insertOne: function (tableInput, cols, vals, cb) {
-        console.log('4');
+        // console.log('4');
         let queryString = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
         connection.query(queryString, vals, (err, data) => {
             if (err) throw err;
             cb(data);
         });
     },
-    updateOne: function (tableInput, propertyToUpdate, oldValue, newValue) {
+    updateOne: function (tableInput, propertyToUpdate, indexProperty, indexValue, newValue) {
         let queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-        connection.query(queryString, [tableInput, propertyToUpdate, newValue, propertyToUpdate, oldValue], (err) => {
+        connection.query(queryString, [tableInput, propertyToUpdate, newValue, indexProperty, indexValue], (err, res) => {
             if (err) throw err;
-            console.log('burger updated');
+            // console.log(res, queryString);
         })
     }
 }
