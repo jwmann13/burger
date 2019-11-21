@@ -39,7 +39,16 @@ $(document).ready(() => {
         })
     });
 
-    $('.delete-burger').on("click", (event) => {
+    $('.delete-burger').on("click", function(event) {
         event.preventDefault();
+
+        let id = $(this).data('id');
+
+        $.ajax(`/api/burgers/${id}`, {
+            method: "DELETE"
+        }).then(function() {
+            console.log('its gone');
+            location.reload();
+        })
     })
 })

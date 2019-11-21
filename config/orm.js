@@ -32,6 +32,13 @@ let orm = {
             if (err) throw err;
             // console.log(res, queryString);
         })
+    },
+    deleteOne: function (tableInput, indexProperty, indexValue) {
+        let queryString = "DELETE FROM ?? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, indexProperty, indexValue], (err, res) => {
+            if (err) throw err;
+            console.log('deleted it')
+        });
     }
 }
 

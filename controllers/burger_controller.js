@@ -34,7 +34,7 @@ router.put("/api/burgers/:id", (req, res) => {
 })
 
 router.delete("/api/burgers/:id", (req, res) => {
-    model.d
+    model.deleteOne('id', req.params.id)
 })
 
 module.exports = router;

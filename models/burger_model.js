@@ -12,6 +12,9 @@ let model = {
     updateOne: function(prop, indexProp, indexVal, newVal) {
         newVal = newVal ? '1' : '0';
         orm.updateOne('burgers', prop, indexProp, indexVal, newVal);
+    },
+    deleteOne: function(indexProp, indexVal) {
+        orm.deleteOne('burgers', indexProp, indexVal)
     }
 }
 
