@@ -1,7 +1,6 @@
 $(document).ready(() => {
     $('.make-burger').on("submit", (event) => {
         event.preventDefault();
-        // console.log('1');
 
         let newBurger = {
             burger_name: $('#burger-text').val().trim(),
@@ -18,29 +17,33 @@ $(document).ready(() => {
     });
 
     $('.devour').on("click", function(event){
-        event.preventDefault();
+        // event.preventDefault();
 
         let id = $(this).attr('data-id');
         let devoured = $(this).attr("data-devoured");
 
-        let devour = {
+        let devourData = {
             id: id,
             devoured: devoured
         }
 
         console.log(devoured)
-
+        debugger;
         $.ajax(`/api/burgers/${id}`, {
             method: "PUT",
-            data: devour
+            data: devourData,
+            error: function(err) {
+                debugger;
+                console.log(err);
+            }
         }).then(function() {
             console.log('i eated it')
             location.reload();
-        })
+        });
     });
 
     $('.delete-burger').on("click", function(event) {
-        event.preventDefault();
+        // event.preventDefault();
 
         let id = $(this).data('id');
 
@@ -50,5 +53,5 @@ $(document).ready(() => {
             console.log('its gone');
             location.reload();
         })
-    })
-})
+    });
+});
