@@ -1,4 +1,3 @@
-let connection = require('../config/connection');
 let orm = require('../config/orm');
 
 let model = {
@@ -6,12 +5,14 @@ let model = {
         orm.selectAll('burgers', cb);
     },
     insertOne: function(vals, cb) {
-        // console.log('3');
         orm.insertOne('burgers', ["burger_name", "devoured"], vals, cb);
     },
-    updateOne: function(prop, indexProp, indexVal, newVal) {
+    updateOne: function(prop, indexProp, indexVal, newVal, cb) {
         newVal = newVal ? '1' : '0';
-        orm.updateOne('burgers', prop, indexProp, indexVal, newVal);
+        orm.updateOne('burgers', prop, indexProp, indexVal, newVal, cb);
+    },
+    deleteOne: function(indexProp, indexVal, cb) {
+        orm.deleteOne('burgers', indexProp, indexVal, cb)
     }
 }
 

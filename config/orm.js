@@ -19,19 +19,27 @@ let orm = {
         })
     },
     insertOne: function (tableInput, cols, vals, cb) {
-        // console.log('4');
         let queryString = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
         connection.query(queryString, vals, (err, data) => {
             if (err) throw err;
             cb(data);
         });
     },
-    updateOne: function (tableInput, propertyToUpdate, indexProperty, indexValue, newValue) {
+    updateOne: function (tableInput, propertyToUpdate, indexProperty, indexValue, newValue, cb) {
         let queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
         connection.query(queryString, [tableInput, propertyToUpdate, newValue, indexProperty, indexValue], (err, res) => {
             if (err) throw err;
-            // console.log(res, queryString);
+            console.log(res);
+            cb(res);
         })
+    },
+    deleteOne: function (tableInput, indexProperty, indexValue, cb) {
+        let queryString = "DELETE FROM ?? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, indexProperty, indexValue], (err, res) => {
+            if (err) throw err;
+            console.log('deleted it');
+            cb(res);
+        });
     }
 }
 
